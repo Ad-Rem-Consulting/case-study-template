@@ -41,23 +41,44 @@ can follow the story without clicking the images.
 
 ## 4. Surface it on adrem.services
 
-Add an entry to `src/data/case-studies.ts` in the Website repo:
+The Website uses Astro Content Collections (not a TS data file). Two
+pieces need to land in the Website repo:
 
-```ts
-{
-  slug: 'acme-portal',
-  client: 'Acme Industries',
-  project: 'Customer Portal Rebuild',
-  outcome: '60% reduction in support tickets in Q1.',
-  stack: ['Next.js', 'Postgres', 'Vercel'],
-  repoUrl: 'https://github.com/Ad-Rem-Consulting/case-study-acme-portal',
-  liveUrl: undefined,   // or 'https://acme-portal.example.com' if public
-  year: 2026,
-}
-```
+**(a)** Drop a new markdown file at `Website/src/content/case-studies/<slug>.md`.
+The filename (minus `.md`) becomes the URL slug — the page renders at
+`/work/<slug>`. The YAML frontmatter must match the Zod schema in
+`Website/src/content/config.ts`:
 
-Push the Website change. The Selected Work section on adrem.services
-auto-renders the new card.
+````markdown
+---
+client: Acme Industries
+project: Customer Portal Rebuild
+outcome: 60% reduction in support tickets in Q1.
+stack:
+  - Next.js
+  - Postgres
+  - Vercel
+repoUrl: https://github.com/Ad-Rem-Consulting/case-study-acme-portal
+liveUrl: https://acme-portal.example.com    # omit the field entirely if private
+year: 2026
+thumbnail: /case-studies/acme-portal-home.jpg
+timeline: 6 weeks
+engagement: Fixed-price
+order: 3                                     # lower numbers surface first
+---
+
+Mirror the body of the case-study repo's README here (without the
+`<!-- ad-rem-case-study: ... -->` HTML comment header — the YAML
+frontmatter above replaces it on the Website side).
+````
+
+**(b)** Drop the thumbnail at `Website/public/case-studies/<slug>-<name>.jpg`.
+The path must match the `thumbnail` field above. Keep file size around
+~150–200KB.
+
+**(c)** Push the `Website` repo. Vercel watches the Website repo directly
+and rebuilds on push to `main`. The new card surfaces in the homepage's
+Selected Work section and the detail page renders at `/work/<slug>`.
 
 ## 5. Delete this HOW-TO-USE.md from the new repo
 
