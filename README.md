@@ -1,3 +1,17 @@
+<!--
+ad-rem-case-study:
+  client: {{Client Name}}
+  project: {{Short project description}}
+  outcome: {{One-line headline result}}
+  stack: [{{Tech1}}, {{Tech2}}, {{Tech3}}]
+  liveUrl: {{https://... — omit the entire line if private}}
+  year: {{2026}}
+  thumbnail: screenshots/{{filename}}.jpg
+  timeline: {{e.g. Under two weeks}}
+  engagement: {{Fixed-price / Hourly / Retainer}}
+  order: {{int — lower numbers surface first on adrem.services}}
+-->
+
 # {{Client Name}} — {{Project Name}}
 
 {{One-sentence outcome statement: what got built, what it does, and the headline result.}}

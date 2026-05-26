@@ -21,13 +21,20 @@ Slug convention: `case-study-<client-or-project-shortname>`. Examples:
 
 ## 2. Fill in README.md
 
-Replace every `{{handlebar}}` placeholder with real content. Sections in
-order of writing difficulty (easiest first):
-1. **Stack** — just list what you used
-2. **Timeline & engagement shape** — facts
-3. **The problem** — what motivated the work
-4. **What we built** — what you actually did
-5. **Outcome** — the hardest section, because it requires post-launch data
+Replace every `{{handlebar}}` placeholder with real content, including
+the `<!-- ad-rem-case-study: ... -->` HTML comment block at the very top
+of the file. That block is the canonical metadata for this case study —
+the same values you fill in there will be copied into the Website's
+content collection in step 4, so getting it right once here saves
+hunting through section headings later.
+
+Sections in order of writing difficulty (easiest first):
+1. **Front-matter HTML comment block** — just data, no prose
+2. **Stack** — just list what you used
+3. **Timeline & engagement shape** — facts
+4. **The problem** — what motivated the work
+5. **What we built** — what you actually did
+6. **Outcome** — the hardest section, because it requires post-launch data
 
 If outcome data isn't available yet, ship the case study without it and add
 a *"Results pending — final report due {{date}}"* note. Update the repo
